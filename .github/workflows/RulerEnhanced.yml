@@ -1,0 +1,31 @@
+# ZIPs all drawing tool files
+
+name: ZIP RulerEnhanced
+
+on:
+  push:
+    paths:
+      - 'DrawingTools/RulerEnhanced/DrawingTools/**'
+      - 'DrawingTools/RulerEnhanced/Info.xml'
+
+  # Allow running this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  zip-files:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT }}
+      - uses: JesseTG/rm@v1.0.3
+        with:
+          path: "DrawingTools/RulerEnhanced/RulerEnhanced.zip"
+      - name: install zip
+        uses: montudor/action-zip@v1
+      - name: zip output
+        run: zip -q -r -l RulerEnhanced.zip DrawingTools Info.xml
+        working-directory: DrawingTools/RulerEnhanced
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update zip file
