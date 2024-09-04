@@ -9,3 +9,5 @@ NinjaTrader's default ruler shows the marked distance either in ticks, price, cu
 3. Right click on the chart and select **Drawing Tools** -> **Ruler Enhanced**. Custom drawing tools are typically added to the bottom of the list.
 
 ![screenshot 2](screen2.png)
+
+<img src="screen1.png" width=70% height=70%>
